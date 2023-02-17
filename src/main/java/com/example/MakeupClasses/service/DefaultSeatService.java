@@ -8,11 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DefSeatService implements SeatService {
+public class DefaultSeatService implements SeatService {
     @Autowired
     private SeatRepository seatRepository;
 
-    public DefSeatService() {
+    public DefaultSeatService() {
     }
 
     public List<Seat> findAll() {
@@ -49,7 +49,10 @@ public class DefSeatService implements SeatService {
 
     }
 
+    @Override
     public List<Seat> findBookedSeats() {
-        return this.seatRepository.findBookedSeats();
+        return null;
     }
+
+
 }

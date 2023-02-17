@@ -1,5 +1,4 @@
 package com.example.MakeupClasses.service;
-
 import com.example.MakeupClasses.pojo.entity.Booking;
 import com.example.MakeupClasses.pojo.input.BookingInput;
 import com.example.MakeupClasses.repository.BookingRepository;
@@ -11,12 +10,12 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class DefBookingService implements BookingService {
+public class DefaultBookingService implements BookingService {
 
     @Autowired
-    private BookingRepository bookingRepository;
+    private BookingRepository bookingRepository; //qe te performon CRUD operations ne objektet Booking
 
-    public DefBookingService() {
+    public DefaultBookingService() {
     }
 
     @Override
@@ -44,9 +43,9 @@ public class DefBookingService implements BookingService {
     @Override
     public Booking update(String nr, BookingInput bookingInput) {
         Booking booking = this.bookingRepository.findBookingByNr(nr);
-        if (booking == null) {
+        if (booking == null) { //asnje parameter nr nuk eshte gjetur
             return null;
-        } else {
+        } else { //nese eshte gjetur parametri
             String updatedNr = bookingInput.getNr();
             Date updatedDate = bookingInput.getDate();
             Time updatedTime = bookingInput.getTime();
@@ -60,8 +59,8 @@ public class DefBookingService implements BookingService {
     @Override
     public void delete(String nr) {
         Booking booking = this.bookingRepository.findBookingByNr(nr);
-        if (booking != null) {
-            this.bookingRepository.delete(booking);
+        if (booking != null) { //nese nuk eshte null e thir metoden delete
+            this.bookingRepository.delete(booking);//largohet prej databaze
         }
     }
 }

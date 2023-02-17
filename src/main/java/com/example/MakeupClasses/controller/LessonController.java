@@ -1,5 +1,4 @@
 package com.example.MakeupClasses.controller;
-
 import com.example.MakeupClasses.pojo.entity.Lesson;
 import com.example.MakeupClasses.pojo.input.LessonInput;
 import com.example.MakeupClasses.service.LessonService;

@@ -71,6 +71,12 @@ The SQL database that we created has 7 entities:
    *BLessonName
    *BookingSeatNr
 
+7. Gift
+   *Products
+   *GClientName
+   *GLessonName
+   *GBookingNr
+
 Important Dependencies:
 
 -- Spring Boot starter data jpa

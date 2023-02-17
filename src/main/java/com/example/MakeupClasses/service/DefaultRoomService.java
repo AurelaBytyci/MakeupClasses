@@ -8,11 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DefRoomService implements RoomService {
+public class DefaultRoomService implements RoomService {
     @Autowired
     private RoomRepository roomRepository;
 
-    public DefRoomService() {
+    public DefaultRoomService() {
     }
 
     public List<Room> findAll() {

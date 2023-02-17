@@ -1,6 +1,5 @@
 package com.example.MakeupClasses.pojo.entity;
 
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -15,9 +14,16 @@ public class Gift {
 
     @Id
     @Column(
-            name = "Giftproducts"
+            name = "Products"
     )
     private String products;
+
+
+
+    @OneToOne
+    @JsonBackReference
+    @JoinColumn(name = "GBookingNr")
+    private Booking booking;
 
     @ManyToOne
     @JsonManagedReference
@@ -48,6 +54,15 @@ public class Gift {
 
     public Gift() {
 
+    }
+
+
+    public Booking getBooking() {
+        return booking;
+    }
+
+    public void setBooking(Booking booking) {
+        this.booking = booking;
     }
 
     public String getProducts() {

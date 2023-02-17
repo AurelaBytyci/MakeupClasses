@@ -29,6 +29,7 @@ public class Realization {
             name = "RLessonName"
     )
     private Lesson lesson;
+
     @ManyToOne
     @JsonManagedReference
     @JoinColumn(

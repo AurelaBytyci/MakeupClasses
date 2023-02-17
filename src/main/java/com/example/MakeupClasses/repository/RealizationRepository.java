@@ -18,7 +18,7 @@ public interface RealizationRepository extends CrudRepository<Realization, Strin
     @Query(
             "SELECT r.lesson.name, r.date, r.time " +
                     "FROM Realization r JOIN FETCH Lesson l ON r.lesson.name=l.name " +
-                    "WHERE r.lesson.name=:name"
+                    "WHERE r.lesson.name=:name"//named parameter(sidoqoft emri, nfund e kthen date and time)
     )
-    List<Realization> findRealizationByLessonName(@Param("name") String name);
+    List<Realization> findRealizationByLessonName(@Param("name") String name);//single argument, kthen list te objekteve realization
 }

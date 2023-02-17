@@ -1,5 +1,4 @@
 package com.example.MakeupClasses.pojo.entity;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -10,30 +9,36 @@ import java.util.Date;
 @Entity
 @Table(name="booking")
 public class Booking {
-        @Id
-        @Column(name="BookingNr")
-        private String nr;
+    @Id
+    @Column(name = "BookingNr")
+    private String nr;
 
-        @Column(name="BookingDate")
-        private Date date;
+    @Column(name = "BookingDate")
+    private Date date;
 
-        @Column(name="BookingTime")
-        private Time time;
+    @Column(name = "BookingTime")
+    private Time time;
 
-        @ManyToOne
-        @JsonManagedReference
-        @JoinColumn(name="BClientName")
-        private Client client;
+    @ManyToOne
+    @JsonManagedReference
+    @JoinColumn(name = "BClientName")
+    private Client client;
 
-        @ManyToOne
-        @JsonManagedReference
-        @JoinColumn(name="BLessonName")
-        private Lesson lesson;
+    @ManyToOne
+    @JsonManagedReference
+    @JoinColumn(name = "BLessonName")
+    private Lesson lesson;
 
-        @OneToOne
-        @JsonBackReference
-        @JoinColumn(name="BookingSeatNr")
-        private Seat seat;
+    @OneToOne
+    @JsonBackReference
+    @JoinColumn(name = "BookingSeatNr")
+    private Seat seat;
+
+    @OneToOne
+    @JsonBackReference
+    @JoinColumn(name = "BGiftProducts")
+    private Gift gift;
+
 
     public Booking() {
     }
@@ -43,7 +48,6 @@ public class Booking {
         this.date = date;
         this.time = time;
     }
-
 
     public String getNr() {
         return nr;
@@ -91,5 +95,13 @@ public class Booking {
 
     public void setSeat(Seat seat) {
         this.seat = seat;
+    }
+
+    public Gift getGift() {
+        return gift;
+    }
+
+    public void setGift(Gift gift) {
+        this.gift = gift;
     }
 }

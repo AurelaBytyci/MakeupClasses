@@ -1,5 +1,4 @@
 package com.example.MakeupClasses.pojo.input;
-
 import java.sql.Time;
 import java.util.Date;
 

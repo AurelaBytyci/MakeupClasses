@@ -9,11 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DefClientService implements ClientService {
+public class DefaultClientService implements ClientService {
     @Autowired
     private ClientRepository clientRepository;
 
-    public DefClientService() {
+    public DefaultClientService() {
     }
 
     public List<Client> findAll() {

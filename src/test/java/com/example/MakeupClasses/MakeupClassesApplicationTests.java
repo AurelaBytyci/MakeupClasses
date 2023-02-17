@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class MakeupClassApplicationTests {
+class MakeupClassesApplicationTests {
 
 	@Autowired
 	ClientRepository clientRepository;
@@ -21,7 +21,10 @@ class MakeupClassApplicationTests {
 	@Autowired
 	SeatRepository seatRepository;
 
-	MakeupClassApplicationTests() {
+	@Autowired
+	GiftRepository giftRepository;
+
+	MakeupClassesApplicationTests() {
 	}
 
 	@Test
@@ -32,7 +35,7 @@ class MakeupClassApplicationTests {
 	}
 
 	@Test
-	public void updateCustomerTest() {
+	public void updateClientTest() {
 		Client client = this.clientRepository.findClientByName("Dije");
 		client.setEmail("dije.livareka@gmail.com");
 		this.clientRepository.save(client);
@@ -132,14 +135,11 @@ class MakeupClassApplicationTests {
 	}
 
 	@Test
-	public void deleteBookingTest(){
+	public void deleteBookingTest() {
 		Booking booking = bookingRepository.findBookingByNr("223");
 		bookingRepository.delete(booking);
 		assertNull(bookingRepository.findBookingByNr("223"));
 	}
-
-	@Autowired
-	GiftRepository giftRepository;
 
 	@Test
 	public void saveGiftTest(){
@@ -150,7 +150,7 @@ class MakeupClassApplicationTests {
 
 	@Test
 	public void updateGiftTest(){
-		Gift gift = giftRepository.findGiftByProduct("EyeCream");
+		Gift gift = giftRepository.findGiftByProducts("EyeCream");
 		gift.setProducts("LipBalm");
 		giftRepository.save(gift);
 		assertEquals("LipBalm", gift.getProducts().toString());
@@ -158,8 +158,8 @@ class MakeupClassApplicationTests {
 
 	@Test
 	public void deleteGiftTest(){
-		Gift gift = giftRepository.findGiftByProduct("LipBalm");
+		Gift gift = giftRepository.findGiftByProducts("LipBalm");
 		giftRepository.delete(gift);
-		assertNull(giftRepository.findGiftByProduct("LipBalm"));
+		assertNull(giftRepository.findGiftByProducts("LipBalm"));
 	}
 }

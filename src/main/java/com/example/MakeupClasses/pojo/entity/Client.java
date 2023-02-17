@@ -8,6 +8,7 @@ import jakarta.persistence.*;
 )
 public class Client {
 
+    @Id
     @Column(
             name = "ClientName"
     )
@@ -17,7 +18,7 @@ public class Client {
     )
     private String surname;
 
-    @Id
+
     @Column(
             name = "ClientEmail"
     )

@@ -8,12 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DefLessonService implements LessonService {
+public class DefaultLessonService implements LessonService {
 
     @Autowired
     private LessonRepository lessonRepository;
 
-    public DefLessonService() {
+    public DefaultLessonService() {
     }
 
     @Override
