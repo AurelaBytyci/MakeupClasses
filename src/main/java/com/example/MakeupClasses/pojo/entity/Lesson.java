@@ -1,6 +1,7 @@
 package com.example.MakeupClasses.pojo.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -19,18 +20,27 @@ public class Lesson {
             name = "LessonCategory"
     )
     private String category;
+
     @OneToMany(
             mappedBy = "lesson"
     )
-
 
     @JsonBackReference
     private List<Booking> bookingList;
+
     @OneToMany(
             mappedBy = "lesson"
     )
+
     @JsonBackReference
     private List<Realization> realizationsList;
+
+
+    @OneToMany(mappedBy = "lesson")
+    @JsonBackReference
+    private List<Gift> gift;
+
+
 
     public Lesson() {
         this.name = "Unknown";
@@ -40,6 +50,14 @@ public class Lesson {
     public Lesson(String name, String category) {
         this.name = name;
         this.category = category;
+    }
+
+    public List<Gift> getGift() {
+        return gift;
+    }
+
+    public void setGift(List<Gift> gift) {
+        this.gift = gift;
     }
 
     public String getName() {
@@ -69,8 +87,6 @@ public class Lesson {
     public List<Realization> getRealizationsList() {
         return this.realizationsList;
     }
-
-
 
     public void setRealizationsList(List<Realization> realizationsList) {
         this.realizationsList = realizationsList;

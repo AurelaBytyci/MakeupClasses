@@ -8,12 +8,13 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SeatRepository extends CrudRepository<Seat, Integer> {
-    List<Seat> findAll();
+
 
     Seat findSeatByNumber(Integer number);
-    List<Seat> findBookedSeats();
 
     @Query("select s from Seat s join fetch Booking b on s.number=b.seat.number")
-
+    List<Seat> findAll();
     void delete(Seat seat);
+
+
 }

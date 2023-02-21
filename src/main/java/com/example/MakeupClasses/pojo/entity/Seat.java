@@ -1,7 +1,10 @@
 package com.example.MakeupClasses.pojo.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(
@@ -20,8 +23,25 @@ public class Seat {
     )
     private Room room;
 
+
+    @OneToMany(
+            mappedBy = "seat"
+    )
+    @JsonBackReference
+    private List<Gift> gifts;//renditje
+
+
     public Seat() {
         this.number = 0;
+    }
+
+
+    public List<Gift> getGifts() {
+        return gifts;
+    }
+
+    public void setGifts(List<Gift> gifts) {
+        this.gifts = gifts;
     }
 
     public Seat(Integer number) {
@@ -43,6 +63,8 @@ public class Seat {
     public void setRoom(Room room) {
         this.room = room;
     }
+
+
 
     public String toString() {
         return "Seat{nr=" + this.number + "}";

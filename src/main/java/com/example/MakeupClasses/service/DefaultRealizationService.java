@@ -11,11 +11,11 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class DefRealizationService implements RealizationService {
+public class DefaultRealizationService implements RealizationService {
     @Autowired
     private RealizationRepository realizationRepository;
 
-    public DefRealizationService() {
+    public DefaultRealizationService() {
     }
 
     public List<Realization> findAll() {

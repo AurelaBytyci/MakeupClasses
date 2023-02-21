@@ -10,10 +10,11 @@ import java.util.List;
 public interface GiftRepository extends CrudRepository<Gift, String> {
 
     List<Gift>findAll();
-    Gift findGiftByProduct(String product);
+    Gift findGiftByProducts(String products);
     @Query(
             "SELECT g FROM Gift g"
+            //SELECT `Products` FROM `gift` join `booking` on Products=booking.BookingNr;
     )
-    //SELECT `Products` FROM `gift` join `booking` on Products=booking.BookingNr;
+
     Gift findGiftByProduct();
 }

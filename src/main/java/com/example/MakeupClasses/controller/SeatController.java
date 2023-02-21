@@ -1,5 +1,4 @@
 package com.example.MakeupClasses.controller;
-
 import com.example.MakeupClasses.pojo.entity.Seat;
 import com.example.MakeupClasses.pojo.input.SeatInput;
 import com.example.MakeupClasses.service.SeatService;

@@ -4,15 +4,16 @@ import com.example.MakeupClasses.pojo.entity.Gift;
 import com.example.MakeupClasses.pojo.input.GiftInput;
 import com.example.MakeupClasses.repository.GiftRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
-public class DefGiftService implements GiftService{
+@Service
+public class DefaultGiftService implements GiftService{
 
     @Autowired
     private GiftRepository giftRepository;
 
-    public DefGiftService() {
+    public DefaultGiftService() {
     }
 
 
@@ -22,22 +23,22 @@ public class DefGiftService implements GiftService{
     }
 
     @Override
-    public Gift findGiftByProduct(String product) {
-        return giftRepository.findGiftByProduct(product);
+    public Gift findGiftByProduct(String products) {
+        return giftRepository.findGiftByProducts(products);
     }
 
     @Override
     public Gift save(GiftInput giftInput) {
 
-        String product = giftInput.getProducts();
+        String products = giftInput.getProducts();
         Gift gift = new Gift();
-        gift.setProducts(product);
+        gift.setProducts(products);
 
         return giftRepository.save(gift);
     }
 
     @Override
-    public Gift update(String product, GiftInput giftInput) {
+    public Gift update(String products, GiftInput giftInput) {
 
         Gift gift = giftRepository.findGiftByProduct();
 
@@ -53,8 +54,8 @@ public class DefGiftService implements GiftService{
     }
 
     @Override
-    public void delete(String product) {
-        Gift gift = giftRepository.findGiftByProduct(product);
+    public void delete(String products) {
+        Gift gift = giftRepository.findGiftByProducts(products);
         if(gift != null){
             giftRepository.delete(gift);
         }
