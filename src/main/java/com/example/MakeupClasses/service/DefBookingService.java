@@ -11,12 +11,12 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class DefaultBookingService implements BookingService {
+public class DefBookingService implements BookingService {
 
     @Autowired
     private BookingRepository bookingRepository;
 
-    public DefaultBookingService() {
+    public DefBookingService() {
     }
 
     @Override
