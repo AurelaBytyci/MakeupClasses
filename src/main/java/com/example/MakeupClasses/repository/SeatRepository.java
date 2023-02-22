@@ -12,8 +12,9 @@ public interface SeatRepository extends CrudRepository<Seat, Integer> {
     Seat findSeatByNumber(Integer number);
     List<Seat> findBookedSeats();
 
+    
     @Query("select s from Seat s join fetch Booking b on s.number=b.seat.number")
-    List<Seat> findAll();
+     List<Seat> findAll();
 
     void delete(Seat seat);
 }
